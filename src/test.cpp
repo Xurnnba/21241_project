@@ -80,9 +80,9 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader lightCubeShader("/Users/huangkangyi/Desktop/OpenGL-Learn/src/vertex.shader", "/Users/huangkangyi/Desktop/OpenGL-Learn/src/fragment.shader");
-    Shader lightingShader("/Users/huangkangyi/Desktop/OpenGL-Learn/src/lightV.shader", "/Users/huangkangyi/Desktop/OpenGL-Learn/src/lightF.shader");
-    Shader stencilShader("/Users/huangkangyi/Desktop/OpenGL-Learn/src/stencilV.shader","/Users/huangkangyi/Desktop/OpenGL-Learn/src/stencilF.shader");
+    Shader lightCubeShader("./vertex.shader", "./fragment.shader");
+    Shader lightingShader("./lightV.shader", "./lightF.shader");
+    Shader stencilShader("./stencilV.shader","./stencilF.shader");
     // Set up the vertex position for cubes -- local position
     float vertices[] = {
         // positions          // normals           // texture coords
@@ -179,8 +179,8 @@ int main()
     glEnableVertexAttribArray(0);
 
     //configure the diffuse and specular maps for the cubes
-    const char *diffusePath = "/Users/huangkangyi/Desktop/OpenGL-Learn/assets/container2.png";
-    const char *specularPath = "/Users/huangkangyi/Desktop/OpenGL-Learn/assets/container2_specular.png";
+    const char *diffusePath = "../assets/container2.png";
+    const char *specularPath = "../assets/container2_specular.png";
     unsigned int diffuseMap = loadTexture(diffusePath);
     unsigned int specularMap = loadTexture(specularPath);
     lightingShader.use();
